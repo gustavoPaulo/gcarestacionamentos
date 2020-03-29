@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Movimento</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+
+	<link rel="icon" type="imagem/png" href="resources/img/logoPatio.png" ></link>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></link>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</h:head>
+<h:body>
+	<h:form id="formMovimento" >	
+			<h1 align="center">Relátorio de Veículos</h1>
+			<br/>
+			<br/>
+			<br />
+			
+			<h:panelGrid columns="2" style="margin: auto;">
+			<h:commandButton value="Retornar ao Pátio" action="#{usuarioBean.retornarPatio}" class="btn btn-danger" />
+			
+			<br />
+			<br />
+			</h:panelGrid>
+		
+			<br/>
+			<br/>
+			<h:dataTable value="#{movimentoBean.movimentos}" var="m" border="3" cellpadding="6" style="margin: auto">
+			
+			<f:facet name="header">
+				<h4 align="center">Relátorio</h4>
+			</f:facet>
+					
+					<h:column>
+						<f:facet name="header">
+						<h6 align="center">Placa</h6>
+						</f:facet>
+						<h:outputText value="#{m.placa}" id="placa"/>
+					</h:column>
+							
+					<h:column>
+						<f:facet name="header">
+						<h6 align="center">Marca</h6>
+						</f:facet>
+						<h:outputText value="#{m.marca}"/>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+						<h6 align="center">Modelo</h6>
+						</f:facet>
+						<h:outputText value="#{m.modelo}"/>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+						<h6 align="center">Cor</h6>
+						</f:facet>
+						<h:outputText value="#{m.cor}"/>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+						<h6 align="center">Tipo</h6>
+						</f:facet>
+						<h:outputText value="#{m.tipo}"/>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+						<h6 align="center">Entrada</h6>
+						</f:facet>
+						<h:outputText value="#{m.entrada}">
+							<f:convertDateTime pattern="dd/MM/yyyy - HH:mm" />
+						</h:outputText>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+						<h6 align="center">Sáida</h6>
+						</f:facet>
+						<h:outputText value="#{m.saida}">
+							<f:convertDateTime pattern="dd/MM/yyyy - HH:mm" />
+						</h:outputText>
+					</h:column>
+			</h:dataTable>
+	</h:form>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+</h:body>
+</html>

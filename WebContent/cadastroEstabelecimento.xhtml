@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Cadastro Estabelecimento</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+
+	<link rel="icon" type="imagem/png" href="resources/img/logoPatio.png" ></link>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></link>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</h:head>
+<h:body>
+	<h:form id="formEstabelecimento" >	
+			<h1 align="center">Cadastro de Estabelecimento</h1>
+			<br/>
+			<br/>
+			<br />
+			
+			<h:panelGrid columns="2" style="margin: auto;">
+			<h:commandButton value="Retornar ao Pátio" action="#{usuarioBean.retornarPatio}" class="btn btn-danger" />
+			
+			<br />
+			<br />
+
+		</h:panelGrid>
+		
+			<h:panelGrid columns="2">
+
+		<f:facet name="header">
+			<h4>Cadastre seu Estabelecimento</h4>
+		</f:facet>
+
+			<h:outputLabel value="Nome: " />
+			<h:inputText value="#{estabelecimentoBean.estabelecimento.nome}" />
+
+			<h:outputLabel value="CNPJ: " />
+			<h:inputText value="#{estabelecimentoBean.estabelecimento.cnpj}" />
+	
+			<h:outputLabel value="Rua: " />
+			<h:inputText value="#{estabelecimentoBean.estabelecimento.rua}" />
+	
+			<h:outputLabel value="Número: " />
+			<h:inputText value="#{estabelecimentoBean.estabelecimento.numeroResidencia}" />
+	
+			<h:outputLabel value="Telefone: " />
+			<h:inputText value="#{estabelecimentoBean.estabelecimento.telefone}"/>
+	
+			<h:outputLabel value="Quantidade de vagas para Moto: " />
+			<h:inputText value="#{estabelecimentoBean.estabelecimento.qtdVagaMoto}" />
+			
+			<h:outputLabel value="Quantidade de vagas para Carro: "/>
+			<h:inputText value="#{estabelecimentoBean.estabelecimento.qtdVagaCarro}" />
+	
+		</h:panelGrid>
+					
+			
+			<br />
+			<h:panelGrid columns="4">
+	
+			<h:commandButton value="Salvar" action="#{estabelecimentoBean.salvar}" image="resources/img/salvar.png" title="Salvar" />
+			<h:commandButton value="Limpar" type="reset" class="btn btn-dark"/>
+			
+			<br />
+			<br />
+
+		</h:panelGrid>
+			
+			
+			<h:dataTable value="#{estabelecimentoBean.estabelecimentos}" var="e" border="3" cellpadding="6">
+			
+			<f:facet name="header">
+				<h4 align="center">Lista de Estabelecimentos</h4>
+			</f:facet>
+		
+					<h:column>
+						<f:facet name="header">
+							<h6 align="center">Código</h6>
+						</f:facet>
+						<h:outputText value="#{e.id}"/>
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">
+						<h6 align="center">Nome</h6>
+						</f:facet>
+						<h:outputText value="#{e.nome}"/>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+						<h6 align="center">CNPJ</h6>
+						</f:facet>
+						<h:outputText value="#{e.cnpj}"/>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+						<h6 align="center">Rua</h6>
+						</f:facet>
+						<h:outputText value="#{e.rua}"/>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+						<h6 align="center">Número</h6>
+						</f:facet>
+						<h:outputText value="#{e.numeroResidencia}"/>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+						<h6 align="center">Contato</h6>
+						</f:facet>
+						<h:outputText value="#{e.telefone}"/>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+						<h6 align="center">Vagas para Moto</h6>
+						</f:facet>
+						<h:outputText value="#{e.qtdVagaMoto}"/>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+						<h6 align="center">Vagas para Carro</h6>
+						</f:facet>
+						<h:outputText value="#{e.qtdVagaCarro}"/>
+					</h:column>
+					
+					<h:column>
+						<h:commandLink title="Editar">
+							<f:setPropertyActionListener value="#{e}" target="#{estabelecimentoBean.estabelecimento}"/>
+							<h:graphicImage value="resources/img/editar.png" />
+							<f:ajax render="@form" />
+						</h:commandLink>
+					</h:column>
+					
+					<h:column>
+						<h:commandLink action="#{estabelecimentoBean.remove}" title="Excluir" >
+							<f:setPropertyActionListener value="#{e}" target="#{estabelecimentoBean.estabelecimento}"/>
+							<h:graphicImage value="resources/img/deletar.png" />
+						</h:commandLink>
+					</h:column>
+			</h:dataTable>
+			
+					
+	</h:form>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+
+
+</h:body>
+</html>
