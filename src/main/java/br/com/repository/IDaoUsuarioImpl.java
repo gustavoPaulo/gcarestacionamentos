@@ -24,7 +24,4 @@ public class IDaoUsuarioImpl implements IDaoUsuario {
 		
 		return usuario;
 	}
-
-	
-		
 }
