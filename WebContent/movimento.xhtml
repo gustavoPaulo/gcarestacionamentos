@@ -75,7 +75,7 @@
 						<h6 align="center">Entrada</h6>
 						</f:facet>
 						<h:outputText value="#{m.entrada}">
-							<f:convertDateTime pattern="dd/MM/yyyy - HH:mm" />
+							<f:convertDateTime pattern="dd/MM/yyyy - HH:mm" locale="pt_BR" timeZone="GMT-03:00" />
 						</h:outputText>
 					</h:column>
 					
@@ -84,7 +84,7 @@
 						<h6 align="center">Sáida</h6>
 						</f:facet>
 						<h:outputText value="#{m.saida}">
-							<f:convertDateTime pattern="dd/MM/yyyy - HH:mm" />
+							<f:convertDateTime pattern="dd/MM/yyyy - HH:mm" locale="pt_BR" timeZone="GMT-03:00" />
 						</h:outputText>
 					</h:column>
 			</h:dataTable>

@@ -24,7 +24,7 @@ private static final long serialVersionUID = 1L;
 	private String cor;
 	private String estabelecimento;
 	private Date entrada = (Date) Calendar.getInstance().getTime();
-	private Date saida = (Date) Calendar.getInstance().getTime();
+	private Date saida;
 	private String marca;
 	private String tipo;
 

@@ -1,11 +1,13 @@
 package br.com.gcarestacionamentos;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+
 
 import br.com.dao.DaoGeneric;
 import br.com.entidades.Movimento;
@@ -31,8 +33,23 @@ public class PatioBean {
 		return "patio";
 	}
 	
+	public void salvaMovimento() {
+		
+		movimento.setPlaca(patio.getPlaca());
+		movimento.setModelo(patio.getModelo());
+		movimento.setCor(patio.getCor());
+		movimento.setEstabelecimento(patio.getEstabelecimento());
+		movimento.setEntrada(patio.getEntrada());
+		movimento.setMarca(patio.getMarca());
+		movimento.setSaida(Calendar.getInstance().getTime());
+		movimento.setTipo(patio.getTipo());
+		
+		movimento = daoGenericMovimento.merge(movimento);
+	}
+	
+	
 	public String remove() {
-
+		
 		daoGenericPatio.deletePorId(patio);
 		patio = new Patio();
 		

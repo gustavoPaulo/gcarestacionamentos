@@ -130,12 +130,12 @@
 						<h6 align="center">Entrada</h6>
 						</f:facet>
 						<h:outputText value="#{p.entrada}">
-							<f:convertDateTime pattern="dd/MM/yyyy - HH:mm" />
+							<f:convertDateTime pattern="dd/MM/yyyy - HH:mm" locale="pt_BR" timeZone="GMT-03:00" />
 						</h:outputText>
 					</h:column>
 					
 					<h:column>
-						<h:commandLink action="#{patioBean.remove}" title="Sáida" >
+						<h:commandLink action="#{patioBean.remove}" title="Sáida" actionListener="#{patioBean.salvaMovimento}" >
 							<f:setPropertyActionListener value="#{p}" target="#{patioBean.patio}"/>
 							<h:graphicImage value="resources/img/saidaVeiculo.png" />
 						</h:commandLink>

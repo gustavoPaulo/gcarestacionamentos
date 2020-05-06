@@ -1,6 +1,5 @@
 package br.com.entidades;
 
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -20,8 +19,8 @@ private static final long serialVersionUID = 1L;
 	private String modelo;
 	private String cor;
 	private String estabelecimento;
-	private Date entrada = (Date) Calendar.getInstance().getTime();
-	private Date saida = (Date) Calendar.getInstance().getTime();
+	private Date entrada;
+	private Date saida;
 	private String marca;
 	private String tipo;
 	
